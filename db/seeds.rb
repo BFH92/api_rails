@@ -17,10 +17,19 @@ end
     password:'azerty'
   )
 end 
-30.times do 
+29.times do 
   article = Article.create!( 
     title: Faker::TvShows::BreakingBad.episode,
     content:Faker::Lorem.paragraph,
-    user_id: 1
+    user_id: 1,
+    is_private: false
+  )
+end
+1.times do 
+  article = Article.create!( 
+    title: Faker::TvShows::BreakingBad.episode,
+    content:Faker::Lorem.paragraph,
+    user_id: 1,
+    is_private: true
   )
 end

@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_203728) do
     t.string "title"
     t.text "content"
     t.bigint "user_id"
+    t.boolean "is_private"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_articles_on_user_id"

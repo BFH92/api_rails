@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :content
       t.references :user
+      t.boolean :is_private
       t.timestamps
     end
   end
