@@ -9,5 +9,12 @@ class ApplicationController < ActionController::API
       }
     ]
   }, status: 401
-end
+  end
+  def is_authorized_user
+    if user_signed_in? && @article.user_id == current_user.id
+      return true 
+    else
+      unauthorized
+    end 
+  end
 end

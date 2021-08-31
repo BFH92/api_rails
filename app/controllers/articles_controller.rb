@@ -51,13 +51,7 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :content, :user_id)
     end
-    def is_authorized_user
-      if @article.user_id == current_user.id
-        return true 
-      else
-        unauthorized
-      end 
-    end
+    
     def is_public?
       if  @article.is_private == false ||  user_signed_in? && is_authorized_user
         return true 

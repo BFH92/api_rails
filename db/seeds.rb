@@ -33,3 +33,11 @@ end
     is_private: true
   )
 end
+
+10.times do
+  comment = Comment.create!(
+    content: Faker::Lorem.paragraph, 
+    user_id: [*1..2].sample,
+    article_id: [*1..3].sample,
+  )
+end
