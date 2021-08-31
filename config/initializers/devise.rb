@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'dotenv'# Appelle la gem Dotenv
+
+Dotenv.load('.env')
+
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -308,17 +312,8 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-
     config.jwt do |jwt|
       jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
-          jwt.dispatch_requests = [
-          ['POST', %r{^/api/login$}]
-        ]
-        jwt.revocation_requests = [
-          ['DELETE', %r{^/api/logout$}]
-        ]
-        jwt.expiration_time = 1.day.to_i
     end
 
 end
